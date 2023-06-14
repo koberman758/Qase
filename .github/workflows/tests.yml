@@ -27,7 +27,11 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Rub tests
-      run: mvn clean test
+    - name: Run tests
+      env:
+        USERNAME: $({secrets.user})
+        PASSWORD: $({secrets.password})
+        TOKEN: $({secrets.token})
+      run: mvn clean test -Duser=$USER -Dpassword=$PASSWORD -Dtoken=$TOKEN
 
 
