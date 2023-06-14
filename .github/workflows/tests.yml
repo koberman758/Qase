@@ -29,9 +29,9 @@ jobs:
         cache: maven
     - name: Run tests
       env:
-        USERNAME: $({secrets.user})
-        PASSWORD: $({secrets.password})
-        TOKEN: $({secrets.token})
+        USERNAME: ${{ secrets.user }}
+        PASSWORD: ${{ secrets.password }}
+        TOKEN: ${{ secrets.token }}
       run: mvn clean test -Duser=$USER -Dpassword=$PASSWORD -Dtoken=$TOKEN
 
 
